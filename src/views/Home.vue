@@ -1,7 +1,7 @@
 <template>
     <div class="homePage">
         <!-- 欢迎语 -->
-        <div class="welcome">
+        <div class="welcome" v-if="cookie">
             <div class="hello">Hello,</div>
             <div class="name">John Smith</div>
         </div>
@@ -42,7 +42,7 @@
                 <div class="cursorItem">
                     <div class="flex-col section_3">
                         <div class="section_2">
-                            <img id="cover" width="229" height="137" src="@/assets/imgs/教育.svg">
+                            <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
                         </div>
                         <span class="self-start font_1 text_3">- 5 h 30 min</span>
                         <span class="self-start font_2 text_4">PowerPoint</span>
@@ -52,7 +52,7 @@
                 <div class="cursorItem">
                     <div class="flex-col section_3">
                         <div class="section_2">
-                            <img id="cover" width="229" height="137" src="@/assets/imgs/教育.svg">
+                            <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
                         </div>
                         <span class="self-start font_1 text_3">- 5 h 30 min</span>
                         <span class="self-start font_2 text_4">PowerPoint</span>
@@ -62,7 +62,7 @@
                 <div class="cursorItem">
                     <div class="flex-col section_3">
                         <div class="section_2">
-                            <img id="cover" width="229" height="137" src="@/assets/imgs/教育.svg">
+                            <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
                         </div>
                         <span class="self-start font_1 text_3">- 5 h 30 min</span>
                         <span class="self-start font_2 text_4">PowerPoint</span>
@@ -72,7 +72,7 @@
                 <div class="cursorItem">
                     <div class="flex-col section_3">
                         <div class="section_2">
-                            <img id="cover" width="229" height="137" src="@/assets/imgs/教育.svg">
+                            <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
                         </div>
                         <span class="self-start font_1 text_3">- 5 h 30 min</span>
                         <span class="self-start font_2 text_4">PowerPoint</span>
@@ -93,6 +93,8 @@ let checkedId = ref(1);
 const sort = (id: number) => {
     checkedId.value = id;
 }
+
+let cookie = ref(localStorage.getItem("cookie"));
 </script>
 
 <style scoped>

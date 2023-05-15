@@ -4,12 +4,16 @@
             <div class="leftContent">
                 <div id="left">
                     <!-- 顶部信息栏 -->
-                    <div id="info" class="flex-row items-center section space-x-197">
-                        <img class="image"
+                    <div id="info" class="flex-row items-center section space-x-197" @click="infoClickHandler">
+                        <img class="image" v-if="cookie"
                             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
-                        <div class="info">
+                        <div class="info" v-if="cookie">
                             <div class="name">John Smith</div>
                             <div class="identity">学生</div>
+                        </div>
+                        <img class="image notLoginImage" v-if="!cookie" src="@/assets/imgs/default_portrait.svg" />
+                        <div class="notLogin info" v-if="!cookie">
+                            <div class="notLoginText">请登录</div>
                         </div>
                         <img class="arrow image_3 image_4"
                             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
@@ -63,6 +67,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 let checkedId = ref(1);
 
+// 导航栏切换
 const changeNav = (id: number) => {
     switch (id) {
         case 1:
@@ -79,6 +84,23 @@ const changeNav = (id: number) => {
             break;
         default:
             break;
+    }
+}
+
+let cookie = ref(localStorage.getItem("cookie"));
+
+// 点击了头像
+const infoClickHandler = () => {
+    console.log(cookie);
+    
+    // 登录的情况
+    if (cookie.value) {
+        router.push("/setting");
+        checkedId.value = 3;
+    }
+    // 没有登录的情况
+    else {
+        router.push("/login");
     }
 }
 </script>
