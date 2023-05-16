@@ -3,27 +3,44 @@
 
         <div class="left">
             <!-- 左侧轮播图 -->
-            <div class="flex-col group_3">
-                <div class="flex-col">
-                    <span class="text_3">Connect With the Tutors</span>
-                    <div class="self-end section_2"></div>
-                    <span class="text_4">You can easily connect with thousands of tutors by using our platform.</span>
-                </div>
-                <img class="self-center image_4"
-                    src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/fdea045ea10a6032d4d1a7acd5396355.png" />
-                <div class="flex-row justify-center group_6 space-x-16">
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/fd92158dba2605ae08c8247b79c4332f.png" />
-                </div>
+            <div class="carousel">
+                <el-carousel indicator-position="outside" height="360px">
+                    <el-carousel-item>
+                        <div class="content">
+                            <img src="@/assets/imgs/login/login1.png" height="210">
+                            <div class="text">
+                                <div class="big">Start Learning New Skills</div>
+                                <div class="small">Learn almost any skill from a comfort of your home with our app.</div>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                    <el-carousel-item>
+                        <div class="content">
+                            <img src="@/assets/imgs/login/login2.png" height="210">
+                            <div class="text">
+                                <div class="big">Connect With the Tutors</div>
+                                <div class="small">You can easily connect with thousands of tutors by using our platform.
+                                </div>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                    <el-carousel-item>
+                        <div class="content">
+                            <img src="@/assets/imgs/login/login3.png" height="210">
+                            <div class="text">
+                                <div class="big">Fully Flexible Schedule</div>
+                                <div class="small">There is no set schedule and you can learn whenever you want to.</div>
+                            </div>
+                        </div>
+                    </el-carousel-item>
+                </el-carousel>
             </div>
         </div>
 
         <div class="right">
 
             <!-- 返回按钮 -->
-            <img class="image backButton" width="40"
+            <img class="image backButton" width="40" @click="goHome()"
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
 
             <!-- 提示文字 -->
@@ -76,7 +93,14 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const goHome = () => {
+    router.push("/home")
+}
+</script>
 
 <style scoped>
 @import url(@/style/views/Login.scss);
