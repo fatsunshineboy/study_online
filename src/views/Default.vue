@@ -46,7 +46,7 @@
                     </div>
 
                     <!-- 退出按钮 -->
-                    <div id="loginOutButton">
+                    <div id="loginOutButton" @click="loginOut">
                         <span class="text">退出登录</span>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ let cookie = ref(localStorage.getItem("cookie"));
 // 点击了头像
 const infoClickHandler = () => {
     console.log(cookie);
-    
+
     // 登录的情况
     if (cookie.value) {
         router.push("/setting");
@@ -102,6 +102,12 @@ const infoClickHandler = () => {
     else {
         router.push("/login");
     }
+}
+
+// 退出登录
+const loginOut = () => {
+    localStorage.removeItem("cookie");
+    router.push("/home");
 }
 </script>
 
