@@ -128,6 +128,9 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus'
+import { useCookieStore } from '@/stores/cookie';
+
+const cookieStore = useCookieStore()
 
 const router = useRouter();
 
@@ -144,12 +147,12 @@ const loginHandle = () => {
     if (!emailData.value || !passwordData.value) {
         ElMessage.error('账号或密码不能为空')
     }
-    else if (emailData.value != "admin" && passwordData.value != "123456") {
-        ElMessage.error('账号或密码错误')
+    else if (emailData.value === "admin" && passwordData.value === "123456") {
+        cookieStore.setCookie(`emailData.value`);
+        router.push("/home")
     }
     else {
-        localStorage.setItem("cookie", "true");
-        router.push("/home")
+        ElMessage.error('账号或密码错误')
     }
 }
 </script>

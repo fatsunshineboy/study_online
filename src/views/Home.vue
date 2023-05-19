@@ -1,7 +1,7 @@
 <template>
     <div class="homePage">
         <!-- 欢迎语 -->
-        <div class="welcome" v-if="cookie">
+        <div class="welcome" v-if="cookieStore.cookie">
             <div class="hello">Hello,</div>
             <div class="name">John Smith</div>
         </div>
@@ -87,14 +87,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useCookieStore } from '@/stores/cookie';
 
+const cookieStore = useCookieStore()
 let checkedId = ref(1);
 
 const sort = (id: number) => {
     checkedId.value = id;
 }
 
-let cookie = ref(localStorage.getItem("cookie"));
 </script>
 
 <style scoped>

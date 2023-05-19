@@ -10,7 +10,7 @@
     #left {
       position: fixed;
       #info {
-        :hover {
+        &:hover {
           cursor: pointer;
         }
         .info {
@@ -49,7 +49,7 @@
         border: solid 1px #eaeaea;
         position: fixed;
         bottom: 50px;
-        :hover {
+        &:hover {
           cursor: pointer;
         }
         .text {
@@ -101,7 +101,7 @@
           padding: 16px 0;
           display: flex;
           flex-direction: row;
-          :hover {
+          &:hover {
             cursor: pointer;
           }
           .title {
