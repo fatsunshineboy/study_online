@@ -1,0 +1,102 @@
+.homeSideBar {
+  width: 390px;
+
+  .head {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    .search {
+      position: relative;
+      .searchInput {
+        width: 310px;
+        height: 48px;
+        border-radius: 16px;
+        border: 1px solid rgba(234, 234, 234, 1);
+        padding: 0 0 0 42px;
+        /** 文本1 */
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 24px;
+        color: rgba(109, 109, 120, 1);
+        outline: none;
+        &:focus {
+          color: rgba(23, 34, 57, 1);
+        }
+      }
+      .searchIcon {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+      }
+    }
+    .info {
+      position: absolute;
+      right: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 40px;
+    .title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      color: rgba(23, 34, 57, 1);
+    }
+    .info {
+      .infoItem {
+        margin-top: 30px;
+        width: 390px;
+        height: 200px;
+        border-radius: 32px;
+        border: 1px solid rgba(234, 234, 234, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          cursor: pointer;
+        }
+        .container {
+          display: flex;
+          justify-content: center;
+          gap: 22px;
+          .detail {
+            width: 254px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .time {
+              font-size: 14px;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 24px;
+              color: rgba(109, 109, 120, 1);
+            }
+            .title {
+              font-size: 20px;
+              font-weight: 600;
+              letter-spacing: 0px;
+              line-height: 32px;
+              color: rgba(23, 34, 57, 1);
+            }
+            .intro {
+              font-size: 14px;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 24px;
+              color: rgba(109, 109, 120, 1);
+            }
+            .progress {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

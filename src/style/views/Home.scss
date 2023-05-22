@@ -1,144 +1,155 @@
 .homePage {
   height: 100%;
-  width: 490px;
+  width: 930px;
   margin-left: 50px;
+  position: relative;
 
-  .welcome {
-    height: 80px;
-    margin-bottom: 40px;
-    padding-top: 10px;
-    .hello {
-      /** 文本1 */
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: 0px;
-      line-height: 24px;
-      text-align: left;
-      vertical-align: top;
-      color: rgba(109, 109, 120, 1);
-    }
-    .name {
-      /** 文本1 */
-      font-size: 40px;
-      font-weight: 400;
-      letter-spacing: 0px;
-      line-height: 48px;
-    }
-  }
-
-  .group {
-    line-height: 17.5px;
-    .text {
-      color: #172239;
-      font-size: 24px;
-      font-family: Montserrat;
-      font-weight: 600;
-      line-height: 17.5px;
-    }
-  }
-  .equal-division {
-    margin-top: 40px;
-    width: 416px;
-    .equal-division-item {
-      padding: 8px 0 60px;
-      border-radius: 40px;
-      width: 80px;
-      height: 130px;
-      border: solid 1px #eaeaea;
-      :hover {
-        cursor: pointer;
-      }
-      .navText {
-        font-size: 14px;
+  .left {
+    width: 490px;
+    .welcome {
+      height: 80px;
+      margin-bottom: 40px;
+      padding-top: 10px;
+      .hello {
+        /** 文本1 */
+        font-size: 20px;
         font-weight: 400;
         letter-spacing: 0px;
         line-height: 24px;
-        text-align: center;
+        text-align: left;
         vertical-align: top;
-        margin-top: 13px;
         color: rgba(109, 109, 120, 1);
       }
-    }
-    .selected {
-      border: solid 2px #52c3ff;
-      .navText {
-        font-weight: 600;
-        color: rgba(23, 34, 57, 1);
-      }
-    }
-    .image {
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-    }
-  }
-  .group_2 {
-    margin: 48px 0 -16px;
-    #course {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .cursorItem {
-        width: 229px;
-        height: 297px;
-        margin-bottom: 30px;
-        :hover {
-          cursor: pointer;
-        }
-        .section_3 {
-          padding-bottom: 22px;
-          border-radius: 32px;
-          border: solid 1px #eaeaea;
-          .text_3 {
-            margin-left: 24px;
-            margin-top: 30px;
-          }
-          .text_4 {
-            margin-left: 24px;
-            margin-top: 16px;
-          }
-          .text_5 {
-            margin-left: 24px;
-            margin-top: 16px;
-          }
-        }
+      .name {
+        /** 文本1 */
+        font-size: 40px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 48px;
       }
     }
 
-    .section_2 {
-      overflow: hidden;
-      border-radius: 32px 32px 0px 0px;
-      background-color: #ffdfd6;
-      height: 137px;
-      display: inline-flex;
-      #cover {
-        object-fit: fill;
+    .group {
+      line-height: 17.5px;
+      .text {
+        color: #172239;
+        font-size: 24px;
+        font-family: Montserrat;
+        font-weight: 600;
+        line-height: 17.5px;
       }
     }
-    .font_1 {
-      font-size: 14px;
-      font-family: Montserrat;
-      line-height: 10.5px;
-      color: #6d6d78;
+    .equal-division {
+      margin-top: 40px;
+      width: 416px;
+      .equal-division-item {
+        padding: 8px 0 60px;
+        border-radius: 40px;
+        width: 80px;
+        height: 130px;
+        border: solid 1px #eaeaea;
+        :hover {
+          cursor: pointer;
+        }
+        .navText {
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: 0px;
+          line-height: 24px;
+          text-align: center;
+          vertical-align: top;
+          margin-top: 13px;
+          color: rgba(109, 109, 120, 1);
+        }
+      }
+      .selected {
+        border: solid 2px #52c3ff;
+        .navText {
+          font-weight: 600;
+          color: rgba(23, 34, 57, 1);
+        }
+      }
+      .image {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+      }
     }
-    .font_2 {
-      font-size: 20px;
-      font-family: Montserrat;
-      line-height: 15.5px;
-      font-weight: 600;
-      color: #172239;
+    .group_2 {
+      margin: 48px 0 -16px;
+      #course {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .cursorItem {
+          width: 229px;
+          height: 297px;
+          margin-bottom: 30px;
+          :hover {
+            cursor: pointer;
+          }
+          .section_3 {
+            padding-bottom: 22px;
+            border-radius: 32px;
+            border: solid 1px #eaeaea;
+            .text_3 {
+              margin-left: 24px;
+              margin-top: 30px;
+            }
+            .text_4 {
+              margin-left: 24px;
+              margin-top: 16px;
+            }
+            .text_5 {
+              margin-left: 24px;
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+
+      .section_2 {
+        overflow: hidden;
+        border-radius: 32px 32px 0px 0px;
+        background-color: #ffdfd6;
+        height: 137px;
+        display: inline-flex;
+        #cover {
+          object-fit: fill;
+        }
+      }
+      .font_1 {
+        font-size: 14px;
+        font-family: Montserrat;
+        line-height: 10.5px;
+        color: #6d6d78;
+      }
+      .font_2 {
+        font-size: 20px;
+        font-family: Montserrat;
+        line-height: 15.5px;
+        font-weight: 600;
+        color: #172239;
+      }
+      .font_3 {
+        font-size: 14px;
+        font-family: Montserrat;
+        line-height: 24px;
+        color: #6d6d78;
+      }
     }
-    .font_3 {
-      font-size: 14px;
-      font-family: Montserrat;
-      line-height: 24px;
-      color: #6d6d78;
+    .space-y-32 {
+      & > *:not(:first-child) {
+        margin-top: 32px;
+      }
     }
   }
-  .space-y-32 {
-    & > *:not(:first-child) {
-      margin-top: 32px;
-    }
+
+  .right {
+    width: 390px;
+    position: absolute;
+    top: 0px;
+    margin-left: 540px;
   }
 }

@@ -30,8 +30,8 @@
                         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/ca34e626ac22be7fdc7c50d1e8421607.png">
                 </div>
                 <div class="itemText">
-                    <div class="itemTitle">Achievements</div>
-                    <div class="introduce">You have received 10 new badges this month.</div>
+                    <div class="itemTitle">成就</div>
+                    <div class="introduce">本月您收到了 10 个新徽章。</div>
                 </div>
             </div>
 
@@ -41,8 +41,8 @@
                         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/2e42bfcc3370f198bf8a1dc54389d705.png">
                 </div>
                 <div class="itemText">
-                    <div class="itemTitle">Notifications</div>
-                    <div class="introduce">Manage the way we send you all the notifications and alerts.</div>
+                    <div class="itemTitle">通知</div>
+                    <div class="introduce">管理我们向您发送所有通知和警报的方式。</div>
                 </div>
             </div>
 
@@ -52,8 +52,8 @@
                         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/37ff2b36fc4e59dacf32428172b42c0e.png">
                 </div>
                 <div class="itemText">
-                    <div class="itemTitle">Payment Details</div>
-                    <div class="introduce">You have 1 card ending 6789 linked to your account.</div>
+                    <div class="itemTitle">付款详情</div>
+                    <div class="introduce">您有 1 张尾号为 6789 的卡链接到您的帐户。</div>
                 </div>
             </div>
         </div>
