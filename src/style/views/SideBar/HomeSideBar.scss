@@ -13,10 +13,8 @@
         border-radius: 16px;
         border: 1px solid rgba(234, 234, 234, 1);
         padding: 0 0 0 42px;
-        /** 文本1 */
         font-size: 14px;
         font-weight: 400;
-        letter-spacing: 0px;
         line-height: 24px;
         color: rgba(109, 109, 120, 1);
         outline: none;
@@ -49,6 +47,15 @@
       color: rgba(23, 34, 57, 1);
     }
     .info {
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 65vh;
+      margin-top: 30px;
+
+
+      .infoItem:first-child {
+        margin-top: 0px;
+      }
       .infoItem {
         margin-top: 30px;
         width: 390px;
@@ -58,6 +65,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         &:hover {
           cursor: pointer;
         }

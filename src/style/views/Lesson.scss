@@ -1,0 +1,101 @@
+#lesson {
+  width: 490px;
+  margin-left: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .time {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0px;
+      line-height: 24px;
+      color: rgba(109, 109, 120, 1);
+    }
+    .name {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0px;
+      line-height: 36px;
+      color: rgba(23, 34, 57, 1);
+    }
+    .intro {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0px;
+      line-height: 26px;
+      color: rgba(109, 109, 120, 1);
+    }
+  }
+
+  .comments {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    color: rgba(109, 109, 120, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .title {
+      display: flex;
+      gap: 40px;
+      .nameAndCount {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .name {
+          color: black;
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+      .sort {
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+        align-items: center;
+      }
+    }
+
+    .remark {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .remarkInput {
+        width: 340px;
+        height: 70px;
+        border-radius: 12px;
+        border: 1px solid rgba(234, 234, 234, 1);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgba(109, 109, 120, 1);
+        outline: none;
+        resize: none;
+        overflow-x: hidden;
+        padding: 8px;
+
+
+        &:focus {
+          color: rgba(23, 34, 57, 1);
+        }
+      }
+      .send {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(255, 223, 214, 1);
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+        line-height: 70px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}

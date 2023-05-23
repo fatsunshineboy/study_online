@@ -16,7 +16,7 @@
             <div class="title">
                 Lessons
             </div>
-            <div class="info">
+            <div class="info scrollbarModify">
                 <div class="infoItem">
                     <div class="container">
                         <div class="icon">
@@ -98,5 +98,5 @@ const customColors = [
 </script>
 
 <style lang="scss" scoped>
-@import url(@/style/views/SideBar/HomeSideBar.scss);
-</style>
+@use "@/style/views/SideBar/HomeSideBar.scss";
+</style> 

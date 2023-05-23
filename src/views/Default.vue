@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-col page" v-if="refreshPage">
+    <div class="flex-col page" >
         <div class="flex-row ">
             <div class="leftContent">
                 <div id="left">
@@ -105,7 +105,6 @@ const infoClickHandler = () => {
     }
 }
 
-let refreshPage = ref(true);
 // 退出登录
 const loginOut = () => {
     localStorage.removeItem("cookie");
