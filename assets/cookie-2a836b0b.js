@@ -1,1 +1,0 @@
-import{a1 as t,r}from"./index-88f12c91.js";const s=t("cookie",()=>{const o=r(localStorage.getItem("cookie")||"");return{cookie:o,setCookie:e=>{o.value=e,localStorage.setItem("cookie",e)},removeCookie:()=>{o.value="",localStorage.removeItem("cookie")}}});export{s as u};

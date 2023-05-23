@@ -1,1 +1,0 @@
-import{d as t,x as o,o as a,c as n,t as r,b as c}from"./index-88f12c91.js";const _={class:"container"},d=t({__name:"Lesson",setup(i){const s=o();return(p,u)=>{var e;return a(),n("div",_,"这里是课程"+r((e=c(s).params)==null?void 0:e.id),1)}}});export{d as default};
