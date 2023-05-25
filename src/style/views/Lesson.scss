@@ -5,6 +5,12 @@
   flex-direction: column;
   gap: 25px;
 
+  .backButton {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .info {
     display: flex;
     flex-direction: column;
@@ -80,7 +86,6 @@
         overflow-x: hidden;
         padding: 8px;
 
-
         &:focus {
           color: rgba(23, 34, 57, 1);
         }
@@ -90,11 +95,121 @@
         height: 70px;
         background-color: rgba(255, 223, 214, 1);
         border-radius: 8px;
-        color: white;
+        color: #172239;
         text-align: center;
         line-height: 70px;
         font-size: 16px;
         font-weight: 700;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .commentPlace {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .commentItem {
+        display: flex;
+        gap: 20px;
+        width: 490px;
+        margin: 10px 0;
+
+        .icon {
+          img {
+            border-radius: 50%;
+          }
+        }
+
+        .commentItemContent {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid var(--grayColor);
+          .content {
+            color: black;
+            font-weight: 600;
+          }
+          .attach {
+            display: flex;
+            font-size: 14px;
+            gap: 25px;
+            width: 400px;
+            overflow: hidden;
+            .like {
+              display: flex;
+              gap: 5px;
+              &:hover {
+                cursor: pointer;
+                .likeIcon {
+                  filter: drop-shadow(var(--nextColor) 300px 0);
+                  transform: translateX(-300px);
+                }
+              }
+            }
+            .reply {
+              &:hover {
+                cursor: pointer;
+                color: rgba(82, 195, 255, 1);
+              }
+            }
+          }
+          .commentChildren {
+            margin: 5px 0;
+            display: flex;
+            gap: 20px;
+            .main {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              .mainHead {
+                display: flex;
+                gap: 10px;
+              }
+            }
+          }
+          .replyItem {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .replyInput {
+              width: 320px;
+              height: 50px;
+              border-radius: 12px;
+              border: 1px solid rgba(234, 234, 234, 1);
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 18px;
+              color: rgba(109, 109, 120, 1);
+              outline: none;
+              resize: none;
+              overflow-x: hidden;
+              padding: 8px;
+
+              &:focus {
+                color: rgba(23, 34, 57, 1);
+              }
+            }
+            .send {
+              width: 50px;
+              height: 50px;
+              background-color: rgba(255, 223, 214, 1);
+              border-radius: 8px;
+              color: #172239;
+              text-align: center;
+              line-height: 50px;
+              font-size: 14px;
+              font-weight: 700;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
       }
     }
   }
