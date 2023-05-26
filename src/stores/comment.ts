@@ -25,7 +25,8 @@ export const useCommentStore = defineStore('comment', () => {
                 comment: '《我对英雄联盟没有热情了》[笑哭]',
                 time: 1685030057079,
                 likeCount: 64,
-                commentId: 2
+                commentId: 2,
+                parentCommentId: 1
               }
             ]
           }
@@ -51,6 +52,59 @@ export const useCommentStore = defineStore('comment', () => {
       ]
     }
   ])
+
+  let totalCommentId = ref(4)
+
+  interface commentType {
+    lessonId: number
+    commentId?: number
+    comment: string
+    name: string
+    icon: string
+    time: number
+    parentCommentId?: number
+  }
+
+  const appendComment = ({
+    lessonId,
+    commentId,
+    comment,
+    name,
+    time,
+    icon,
+    parentCommentId
+  }: commentType) => {
+    // 内容为空
+    if (!comment) {
+      return
+    } else {
+      // 没有commentId,说明是新建的评论,生成一个commentId
+      if (!commentId) {
+        commentId = totalCommentId.value + 1
+      }
+      commentList.value.forEach((item) => {
+        if (item.lessonId === lessonId) {
+          // 为子级评论
+          if (parentCommentId) {
+            item.content.forEach((contentItem) => {
+              if (contentItem.commentId === parentCommentId) {
+                let childCommentObject = {
+                  name,
+                  icon,
+                  comment,
+                  time,
+                  likeCount: 0,
+                  commentId: totalCommentId.value + 1,
+                  parentCommentId
+                }
+                // contentItem.childcomment?.length = contentItem.childcomment?.length + 1
+              }
+            })
+          }
+        }
+      })
+    }
+  }
 
   return { commentList }
 })
