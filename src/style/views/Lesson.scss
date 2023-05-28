@@ -1,217 +1,232 @@
 #lesson {
-  width: 490px;
-  margin-left: 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  height: 100%;
+  width: 930px;
+  margin-left: 50px;
 
-  .backButton {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .info {
+  .left {
+    width: 490px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    .time {
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0px;
-      line-height: 24px;
-      color: rgba(109, 109, 120, 1);
-    }
-    .name {
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: 0px;
-      line-height: 36px;
-      color: rgba(23, 34, 57, 1);
-    }
-    .intro {
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0px;
-      line-height: 26px;
-      color: rgba(109, 109, 120, 1);
-    }
-  }
-
-  .comments {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(109, 109, 120, 1);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .title {
-      display: flex;
-      gap: 40px;
-      .nameAndCount {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        .name {
-          color: black;
-          font-size: 20px;
-          font-weight: 600;
-        }
-      }
-      .sort {
-        display: flex;
-        gap: 10px;
-        font-size: 14px;
-        align-items: center;
+    gap: 25px;
+    .backButton {
+      &:hover {
+        cursor: pointer;
       }
     }
 
-    .remark {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .remarkInput {
-        width: 340px;
-        height: 70px;
-        border-radius: 12px;
-        border: 1px solid rgba(234, 234, 234, 1);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 18px;
-        color: rgba(109, 109, 120, 1);
-        outline: none;
-        resize: none;
-        overflow-x: hidden;
-        padding: 8px;
-
-        &:focus {
-          color: rgba(23, 34, 57, 1);
-        }
-      }
-      .send {
-        width: 70px;
-        height: 70px;
-        background-color: rgba(255, 223, 214, 1);
-        border-radius: 8px;
-        color: #172239;
-        text-align: center;
-        line-height: 70px;
-        font-size: 16px;
-        font-weight: 700;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-
-    .commentPlace {
-      width: 100%;
+    .info {
       display: flex;
       flex-direction: column;
+      gap: 10px;
+      .time {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 24px;
+        color: rgba(109, 109, 120, 1);
+      }
+      .name {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0px;
+        line-height: 36px;
+        color: rgba(23, 34, 57, 1);
+      }
+      .intro {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 26px;
+        color: rgba(109, 109, 120, 1);
+      }
+    }
 
-      .commentItem {
+    .comments {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0px;
+      color: rgba(109, 109, 120, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .title {
         display: flex;
-        gap: 20px;
-        width: 490px;
-        margin: 10px 0;
-
-        .icon {
-          img {
-            border-radius: 50%;
-          }
-        }
-
-        .commentItemContent {
+        gap: 40px;
+        .nameAndCount {
           display: flex;
-          flex-direction: column;
           gap: 10px;
-          padding-bottom: 10px;
-          width: 425px;
-          border-bottom: 2px solid var(--grayColor);
-          .content {
+          align-items: center;
+          .name {
             color: black;
+            font-size: 20px;
             font-weight: 600;
           }
-          .attach {
+        }
+        .sort {
+          display: flex;
+          gap: 10px;
+          font-size: 14px;
+          align-items: center;
+        }
+      }
+
+      .remark {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .remarkInput {
+          width: 340px;
+          height: 70px;
+          border-radius: 12px;
+          border: 1px solid rgba(234, 234, 234, 1);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 18px;
+          color: rgba(109, 109, 120, 1);
+          outline: none;
+          resize: none;
+          overflow-x: hidden;
+          padding: 8px;
+
+          &:focus {
+            color: rgba(23, 34, 57, 1);
+          }
+        }
+        .send {
+          width: 70px;
+          height: 70px;
+          background-color: rgba(255, 223, 214, 1);
+          border-radius: 8px;
+          color: #172239;
+          text-align: center;
+          line-height: 70px;
+          font-size: 16px;
+          font-weight: 700;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .commentPlace {
+        display: flex;
+        flex-direction: column;
+
+        .commentItem {
+          display: flex;
+          gap: 20px;
+          width: 490px;
+          margin: 10px 0;
+
+          .icon {
+            img {
+              border-radius: 50%;
+            }
+          }
+
+          .commentItemContent {
             display: flex;
-            font-size: 14px;
-            gap: 25px;
-            width: 400px;
-            overflow: hidden;
-            .like {
+            flex-direction: column;
+            gap: 10px;
+            padding-bottom: 10px;
+            width: 425px;
+            border-bottom: 2px solid var(--grayColor);
+            .content {
+              color: black;
+              font-weight: 600;
+            }
+            .attach {
               display: flex;
-              gap: 5px;
-              &:hover {
-                cursor: pointer;
-                .likeIcon {
-                  filter: drop-shadow(var(--nextColor) 300px 0);
-                  transform: translateX(-300px);
+              font-size: 14px;
+              gap: 25px;
+              width: 400px;
+              overflow: hidden;
+              .like {
+                display: flex;
+                gap: 5px;
+                &:hover {
+                  cursor: pointer;
+                  .likeIcon {
+                    filter: drop-shadow(var(--nextColor) 300px 0);
+                    transform: translateX(-300px);
+                  }
+                }
+              }
+              .reply {
+                &:hover {
+                  cursor: pointer;
+                  color: rgba(82, 195, 255, 1);
                 }
               }
             }
-            .reply {
-              &:hover {
-                cursor: pointer;
-                color: rgba(82, 195, 255, 1);
-              }
-            }
-          }
-          .commentChildren {
-            margin: 5px 0;
-            display: flex;
-            gap: 20px;
-            .main {
+            .commentChildren {
+              margin: 5px 0;
               display: flex;
-              flex-direction: column;
-              gap: 10px;
-              .mainHead {
+              gap: 20px;
+              .main {
                 display: flex;
+                flex-direction: column;
                 gap: 10px;
+                .mainHead {
+                  width: 370px;
+                  .name {
+                    margin-right: 10px;
+                  }
+                  .replyToWho {
+                    margin-right: 10px;
+                  }
+                }
               }
             }
-          }
-          .replyItem {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .replyInput {
-              width: 320px;
-              height: 50px;
-              border-radius: 12px;
-              border: 1px solid rgba(234, 234, 234, 1);
-              font-size: 14px;
-              font-weight: 400;
-              line-height: 18px;
-              color: rgba(109, 109, 120, 1);
-              outline: none;
-              resize: none;
-              overflow-x: hidden;
-              padding: 8px;
+            .replyItem {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .replyInput {
+                width: 320px;
+                height: 50px;
+                border-radius: 12px;
+                border: 1px solid rgba(234, 234, 234, 1);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18px;
+                color: rgba(109, 109, 120, 1);
+                outline: none;
+                resize: none;
+                overflow-x: hidden;
+                padding: 8px;
 
-              &:focus {
-                color: rgba(23, 34, 57, 1);
+                &:focus {
+                  color: rgba(23, 34, 57, 1);
+                }
               }
-            }
-            .send {
-              width: 50px;
-              height: 50px;
-              background-color: rgba(255, 223, 214, 1);
-              border-radius: 8px;
-              color: #172239;
-              text-align: center;
-              line-height: 50px;
-              font-size: 14px;
-              font-weight: 700;
-              &:hover {
-                cursor: pointer;
+              .send {
+                width: 50px;
+                height: 50px;
+                background-color: rgba(255, 223, 214, 1);
+                border-radius: 8px;
+                color: #172239;
+                text-align: center;
+                line-height: 50px;
+                font-size: 14px;
+                font-weight: 700;
+                &:hover {
+                  cursor: pointer;
+                }
               }
             }
           }
         }
       }
     }
+  }
+
+  .right {
+    width: 390px;
+    position: fixed;
+    top: 64px;
+    margin-left: 540px;
   }
 }

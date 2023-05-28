@@ -6,12 +6,12 @@ export const useCommentStore = defineStore('comment', () => {
   const commentList = ref([
     {
       lessonId: 1,
-      length: 3,
+      count: 2,
       content: [
         {
           name: '张三',
           icon: 'https://cdn.pixabay.com/photo/2023/05/21/07/47/horse-8008038_1280.jpg',
-          comment: '1:56 这句塔司给dei没绷住',
+          comment: '123',
           time: 1685030053059,
           likeCount: 12,
           hasChildcomment: true,
@@ -23,7 +23,7 @@ export const useCommentStore = defineStore('comment', () => {
               {
                 name: '阿森贝',
                 icon: 'https://cdn.pixabay.com/photo/2023/02/13/13/16/silver-gull-7787328_1280.jpg',
-                comment: '《我对英雄联盟没有热情了》[笑哭]',
+                comment: '456',
                 time: 1685030057079,
                 likeCount: 64,
                 commentId: 2,
@@ -69,9 +69,8 @@ export const useCommentStore = defineStore('comment', () => {
 
     commentList.value.forEach((item) => {
       if (item.lessonId === lessonId) {
+        item.count += 1
         // 为新发表的评论
-        console.log(childCommentObject)
-        console.log(parentCommentId, subordinateId)
         if (!parentCommentId) {
           Object.assign(childCommentObject, {
             hasChildcomment: false,
@@ -81,7 +80,6 @@ export const useCommentStore = defineStore('comment', () => {
               content: []
             }
           })
-          item.length += 1
           item.content.push(childCommentObject as any)
           localStorage.setItem('commentList', JSON.stringify(commentList.value))
           localStorage.setItem('totalCommentId', JSON.stringify(totalCommentId.value))
@@ -125,7 +123,7 @@ export const useCommentStore = defineStore('comment', () => {
         // 课程1
         {
           lessonId: 1,
-          length: 2,
+          count: 4,
           content: [
             {
               name: '管理员_sun',
@@ -183,7 +181,7 @@ export const useCommentStore = defineStore('comment', () => {
         // 课程2
         {
           lessonId: 2,
-          length: 2,
+          count: 3,
           content: [
             {
               name: '管理员_lisa',
@@ -217,7 +215,7 @@ export const useCommentStore = defineStore('comment', () => {
                     comment: '也许你得联系下管理员',
                     time: 1685030057079,
                     likeCount: 64,
-                    commentId:6,
+                    commentId: 6,
                     parentCommentId: 5,
                     subordinateId: 5,
                     subordinateName: '基噜夫'
@@ -230,7 +228,7 @@ export const useCommentStore = defineStore('comment', () => {
         // 课程3
         {
           lessonId: 3,
-          length: 2,
+          count: 3,
           content: [
             {
               name: '管理员_luna',

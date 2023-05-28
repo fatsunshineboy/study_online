@@ -1,116 +1,132 @@
 <template>
     <div id="lesson">
-        <!-- 返回按钮 -->
-        <img class="backButton" @click="goToHome" width="40"
-            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
+        <div class="left">
+            <!-- 返回按钮 -->
+            <img class="backButton" @click="goToHome" width="40"
+                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
 
-        <div class="video">
-            <video width="490" controls src="@/assets/video/c.mp4"></video>
-        </div>
-
-        <div class="info">
-            <div class="time">- 0 h 55 min</div>
-            <div class="name">Complete Introduction to the Basics of JavaScript</div>
-            <div class="intro">
-                Here are all the basics that you need to know in order to get started.
+            <!-- 视频 -->
+            <div class="video">
+                <video width="490" controls src="@/assets/video/c.mp4"></video>
             </div>
-        </div>
 
-        <div class="comments">
-            <div class="title">
-                <div class="nameAndCount">
-                    <div class="name">评论</div>
-                    <div class="count">388</div>
-                </div>
-                <div class="sort">
-                    <div class="hot">最热</div>
-                    <div class="divid">|</div>
-                    <div class="new">最新</div>
+            <!-- 课程信息 -->
+            <div class="info">
+                <div class="time">- 0 h 55 min</div>
+                <div class="name">Complete Introduction to the Basics of JavaScript</div>
+                <div class="intro">
+                    Here are all the basics that you need to know in order to get started.
                 </div>
             </div>
 
-            <div class="remark">
-                <div class="icon">
-                    <img width="45" height="45"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+            <!-- 评论 -->
+            <div class="comments">
+                <div class="title">
+                    <div class="nameAndCount">
+                        <div class="name">评论</div>
+                        <div class="count">{{ commentStore.commentList[Number(route.params.id) - 1].count }}</div>
+                    </div>
+                    <div class="sort">
+                        <div class="hot">最热</div>
+                        <div class="divid">|</div>
+                        <div class="new">最新</div>
+                    </div>
                 </div>
-                <textarea roows="4" v-model="commentInputContent" placeholder="发个友善的评论吧~" ref="commentInput"
-                    class="remarkInput scrollbarModify" @keyup.enter="sendComment(commentOption.comment, {
+
+                <div class="remark">
+                    <div class="icon">
+                        <img width="45" height="45"
+                            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+                    </div>
+                    <textarea roows="4" v-model="commentInputContent" placeholder="发个友善的评论吧~" ref="commentInput"
+                        class="remarkInput scrollbarModify" @keyup.enter="sendComment(commentOption.comment, {
+                            lessonId: Number(route.params.id),
+                            comment: commentInputContent,
+                            name: userStore.name,
+                            time: Date.now(),
+                            icon: userStore.imageUrl,
+                        })"></textarea>
+                    <div class="send" @click="sendComment(commentOption.comment, {
                         lessonId: Number(route.params.id),
                         comment: commentInputContent,
                         name: userStore.name,
                         time: Date.now(),
                         icon: userStore.imageUrl,
-                    })"></textarea>
-                <div class="send" @click="sendComment(commentOption.comment, {
-                    lessonId: Number(route.params.id),
-                    comment: commentInputContent,
-                    name: userStore.name,
-                    time: Date.now(),
-                    icon: userStore.imageUrl,
-                })">发布</div>
-            </div>
+                    })">发布</div>
+                </div>
 
-            <div class="commentPlace">
-                <div class="commentItem" v-for="(item, index) in commentStore.commentList[Number(route.params.id) - 1].content">
-                    <div class="icon">
-                        <img width="45" height="45" :src="item.icon" />
-                    </div>
+                <div class="commentPlace">
+                    <div class="commentItem"
+                        v-for="(item, index) in commentStore.commentList[Number(route.params.id) - 1].content">
+                        <div class="icon">
+                            <img width="45" height="45" :src="item.icon" />
+                        </div>
 
-                    <div class="commentItemContent">
-                        <div class="name">
-                            {{ item.name }}
-                        </div>
-                        <div class="content">
-                            {{ item.comment }}
-                        </div>
-                        <div class="attach">
-                            <div class="time">
-                                {{ formatDate(item.time) }}
+                        <div class="commentItemContent">
+                            <div class="name">
+                                {{ item.name }}
                             </div>
-                            <div class="like">
-                                <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
-                                <div class="count">{{ item.likeCount }}</div>
+                            <div class="content">
+                                {{ item.comment }}
                             </div>
-                            <div class="reply" @click="reply(item.commentId, item.name, item.commentId)">回复</div>
-                        </div>
-                        <div class="commentChildren" v-if="item.hasChildcomment"
-                            v-for="(childItem, childIndex) in item.childcomment?.content">
-                            <div class="icon">
-                                <img width="30" height="30" :src="childItem.icon" />
-                            </div>
-                            <div class="main">
-                                <div class="mainHead">
-                                    <div class="name">
-                                        {{ childItem.name }}
-                                    </div>
-                                    <div class="replyToWho" v-if="childItem.parentCommentId != childItem.subordinateId">
-                                        回复 @{{ childItem.subordinateName }}:
-                                    </div>
-                                    <div class="content">
-                                        {{ childItem.comment }}
-                                    </div>
+                            <div class="attach">
+                                <div class="time">
+                                    {{ formatDate(item.time) }}
                                 </div>
-                                <div class="attach">
-                                    <div class="time">{{ formatDate(childItem.time) }}</div>
-                                    <div class="like">
-                                        <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
-                                        <div class="count">{{ childItem.likeCount }}</div>
-                                    </div>
-                                    <div class="reply"
-                                        @click="reply(item.commentId, childItem.name, childItem.commentId, item.commentId)">
-                                        回复
+                                <div class="like">
+                                    <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
+                                    <div class="count">{{ item.likeCount }}</div>
+                                </div>
+                                <div class="reply" @click="reply(item.commentId, item.name, item.commentId)">回复</div>
+                            </div>
+                            <div class="commentChildren" v-if="item.hasChildcomment"
+                                v-for="(childItem, childIndex) in item.childcomment?.content">
+                                <div class="icon">
+                                    <img width="30" height="30" :src="childItem.icon" />
+                                </div>
+                                <div class="main">
+                                    <span class="mainHead">
+                                        <span class="name">
+                                            {{ childItem.name }}
+                                        </span>
+                                        <span class="replyToWho"
+                                            v-if="childItem.parentCommentId != childItem.subordinateId">
+                                            回复 @{{ childItem.subordinateName }}:
+                                        </span>
+                                        <span class="content">
+                                            {{ childItem.comment }}
+                                        </span>
+                                    </span>
+                                    <div class="attach">
+                                        <div class="time">{{ formatDate(childItem.time) }}</div>
+                                        <div class="like">
+                                            <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
+                                            <div class="count">{{ childItem.likeCount }}</div>
+                                        </div>
+                                        <div class="reply"
+                                            @click="reply(item.commentId, childItem.name, childItem.commentId, item.commentId)">
+                                            回复
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="replyItem" v-show="clickedCommentIndex === item.commentId">
-                            <div class="icon">
-                                <img width="45" height="45"
-                                    src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
-                            </div>
-                            <textarea roows="3" :placeholder="`回复 @${replyInputName}:`" v-model="replyInputContent"
-                                ref="replyInput" class="replyInput scrollbarModify" @keyup.enter="sendComment(commentOption.reply, {
+                            <div class="replyItem" v-show="clickedCommentIndex === item.commentId">
+                                <div class="icon">
+                                    <img width="45" height="45"
+                                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+                                </div>
+                                <textarea roows="3" :placeholder="`回复 @${replyInputName}:`" v-model="replyInputContent"
+                                    ref="replyInput" class="replyInput scrollbarModify" @keyup.enter="sendComment(commentOption.reply, {
+                                        lessonId: Number(route.params.id),
+                                        comment: replyInputContent,
+                                        name: userStore.name,
+                                        time: Date.now(),
+                                        icon: userStore.imageUrl,
+                                        parentCommentId: replyCommentId,
+                                        subordinateId: item.commentId,
+                                        subordinateName: replyInputName,
+                                    })"></textarea>
+                                <div class="send" @click="sendComment(commentOption.reply, {
                                     lessonId: Number(route.params.id),
                                     comment: replyInputContent,
                                     name: userStore.name,
@@ -119,21 +135,17 @@
                                     parentCommentId: replyCommentId,
                                     subordinateId: item.commentId,
                                     subordinateName: replyInputName,
-                                })"></textarea>
-                            <div class="send" @click="sendComment(commentOption.reply, {
-                                lessonId: Number(route.params.id),
-                                comment: replyInputContent,
-                                name: userStore.name,
-                                time: Date.now(),
-                                icon: userStore.imageUrl,
-                                parentCommentId: replyCommentId,
-                                subordinateId: item.commentId,
-                                subordinateName: replyInputName,
-                            })">发布</div>
+                                })">发布</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="right">
+            <!-- 测试 -->
+            <TestSideBarVue></TestSideBarVue>
         </div>
     </div>
 </template>
@@ -146,6 +158,7 @@ import formatDate from '@/utils/formatDate'
 import { ElMessage } from 'element-plus';
 import type { commentType } from '@/Interface/commentType'
 import { useUserStore } from '@/stores/user';
+import TestSideBarVue from './SideBar/TestSideBar.vue';
 
 const router = useRouter()
 const route = useRoute()
