@@ -34,14 +34,25 @@
                     <img width="45" height="45"
                         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
                 </div>
-                <textarea roows="4" v-model="remarkInputContent" placeholder="发个友善的评论吧~"
-                    class="remarkInput scrollbarModify">
-                            </textarea>
-                <div class="send" @click="sendRemark">发布</div>
+                <textarea roows="4" v-model="commentInputContent" placeholder="发个友善的评论吧~" ref="commentInput"
+                    class="remarkInput scrollbarModify" @keyup.enter="sendComment(commentOption.comment, {
+                        lessonId: Number(route.params.id),
+                        comment: commentInputContent,
+                        name: userStore.name,
+                        time: Date.now(),
+                        icon: userStore.imageUrl,
+                    })"></textarea>
+                <div class="send" @click="sendComment(commentOption.comment, {
+                    lessonId: Number(route.params.id),
+                    comment: commentInputContent,
+                    name: userStore.name,
+                    time: Date.now(),
+                    icon: userStore.imageUrl,
+                })">发布</div>
             </div>
 
             <div class="commentPlace">
-                <div class="commentItem" v-for="(item, index) in comment.content">
+                <div class="commentItem" v-for="(item, index) in commentStore.commentList[Number(route.params.id) - 1].content">
                     <div class="icon">
                         <img width="45" height="45" :src="item.icon" />
                     </div>
@@ -61,7 +72,7 @@
                                 <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
                                 <div class="count">{{ item.likeCount }}</div>
                             </div>
-                            <div class="reply" @click="reply(index, item.name, item.commentId)">回复</div>
+                            <div class="reply" @click="reply(item.commentId, item.name, item.commentId)">回复</div>
                         </div>
                         <div class="commentChildren" v-if="item.hasChildcomment"
                             v-for="(childItem, childIndex) in item.childcomment?.content">
@@ -72,6 +83,9 @@
                                 <div class="mainHead">
                                     <div class="name">
                                         {{ childItem.name }}
+                                    </div>
+                                    <div class="replyToWho" v-if="childItem.parentCommentId != childItem.subordinateId">
+                                        回复 @{{ childItem.subordinateName }}:
                                     </div>
                                     <div class="content">
                                         {{ childItem.comment }}
@@ -84,20 +98,38 @@
                                         <div class="count">{{ childItem.likeCount }}</div>
                                     </div>
                                     <div class="reply"
-                                        @click="reply(index, childItem.name, childItem.commentId, item.commentId)">
+                                        @click="reply(item.commentId, childItem.name, childItem.commentId, item.commentId)">
                                         回复
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="replyItem" v-if="index === clickedCommentIndex">
+                        <div class="replyItem" v-show="clickedCommentIndex === item.commentId">
                             <div class="icon">
                                 <img width="45" height="45"
                                     src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
                             </div>
-                            <textarea roows="3" :placeholder="`回复 @${replyInputName}:`"
-                                class="replyInput scrollbarModify"></textarea>
-                            <div class="send">发布</div>
+                            <textarea roows="3" :placeholder="`回复 @${replyInputName}:`" v-model="replyInputContent"
+                                ref="replyInput" class="replyInput scrollbarModify" @keyup.enter="sendComment(commentOption.reply, {
+                                    lessonId: Number(route.params.id),
+                                    comment: replyInputContent,
+                                    name: userStore.name,
+                                    time: Date.now(),
+                                    icon: userStore.imageUrl,
+                                    parentCommentId: replyCommentId,
+                                    subordinateId: item.commentId,
+                                    subordinateName: replyInputName,
+                                })"></textarea>
+                            <div class="send" @click="sendComment(commentOption.reply, {
+                                lessonId: Number(route.params.id),
+                                comment: replyInputContent,
+                                name: userStore.name,
+                                time: Date.now(),
+                                icon: userStore.imageUrl,
+                                parentCommentId: replyCommentId,
+                                subordinateId: item.commentId,
+                                subordinateName: replyInputName,
+                            })">发布</div>
                         </div>
                     </div>
                 </div>
@@ -107,15 +139,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useCommentStore } from '@/stores/comment'
 import formatDate from '@/utils/formatDate'
 import { ElMessage } from 'element-plus';
+import type { commentType } from '@/Interface/commentType'
+import { useUserStore } from '@/stores/user';
 
 const router = useRouter()
+const route = useRoute()
 const commentStore = useCommentStore()
-let comment = commentStore.commentList[0]
+const userStore = useUserStore()
+onMounted(() => {
+    console.log(commentStore.commentList[Number(route.params.id) - 1]);
+
+})
 
 // 回复的id
 let clickedCommentIndex = ref(-1)
@@ -127,13 +166,17 @@ const goToHome = () => {
 }
 
 // 回复
+const commentInput = ref()
+const replyInput = ref()
 const reply = (
     index: number,
     replyName: string,
     commentId: number,
-    parentCommentId?: number | null
+    parentCommentId?: number | null,
 ) => {
     // 再次点击回复收起回复框
+    console.log(index);
+
     if (clickedCommentIndex.value === index) {
         clickedCommentIndex.value = -1
         replyInputName.value = ''
@@ -143,22 +186,36 @@ const reply = (
         clickedCommentIndex.value = index
         // 修改回复者的姓名
         replyInputName.value = replyName
-        if (parentCommentId) {
-        }
+        replyCommentId.value = commentId
+
     }
 }
 
 // 评论
 // 评论内容
-let remarkInputContent = ref('')
+let commentInputContent = ref('')
+let replyInputContent = ref('')
+let replyCommentId = ref(-1);
+// 评论类型
+enum commentOption {
+    // 评论
+    comment = 0,
+    // 回复
+    reply = 1
+}
 // 发表评论
-const sendRemark = () => {
-    if (!remarkInputContent.value) {
+const sendComment = (option: commentOption, commentObject: commentType) => {
+    if ((option === commentOption.comment && !commentInputContent.value) || (option === commentOption.reply && !replyInputContent.value)) {
         ElMessage.error("你没有评论！")
     }
-    // commentStore.sendRemark({
-    //     content:""
-    // })
+    else {
+        console.log(commentObject);
+        commentStore.appendComment(commentObject)
+        commentInputContent.value = ''
+        replyInputContent.value = ''
+        clickedCommentIndex.value = -1
+    }
+
 }
 </script>
 

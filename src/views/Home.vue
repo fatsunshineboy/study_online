@@ -70,16 +70,7 @@
                             <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
                         </div>
                     </div>
-                    <div class="cursorItem" @click="goToLesson(4)">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
