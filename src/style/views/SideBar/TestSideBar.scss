@@ -39,33 +39,56 @@
             font-size: 16px;
             font-weight: 400;
             color: rgba(23, 34, 57, 1);
-            margin-top: 20px;
+            margin-top: 10px;
             .optionItem {
               display: flex;
               gap: 10px;
               padding: 10px;
               border-radius: 12px;
+              position: relative;
+              margin: 3px 0;
               &:hover {
                 cursor: pointer;
                 background-color: var(--mainColor);
               }
+              .no,
+              .yes {
+                position: absolute;
+                right: 10px;
+                justify-content: center;
+                align-items: center;
+              }
             }
+            .checkedOptionItem {
+              background-color: rgb(240, 222, 218);
+            }
+          }
+          .analytical {
+            margin-top: 10px;
+            line-height: 23px;
+            font-size: 16px;
+            font-weight: 600;
           }
         }
         .testCount {
           display: flex;
-          margin-top: 20px;
+          margin-bottom: 10px;
           gap: 9px;
           flex-wrap: wrap;
           &:hover {
             cursor: pointer;
           }
           .testCountItem {
+            box-sizing: border-box;
             width: 30px;
             height: 30px;
             border-radius: 6px;
-            line-height: 30px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--mainColor);
+          }
+          .done {
             background-color: var(--mainColor);
           }
         }

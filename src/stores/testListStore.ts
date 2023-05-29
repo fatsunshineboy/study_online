@@ -28,7 +28,8 @@ export const useTestListStore = defineStore('testList', () => {
           options: ['冒泡排序', '插入排序', '希尔排序', '堆排序']
         }
       ],
-      testResult: ['a', 'b', 'c', 'd', 'a']
+      testResult: ['a', 'b', 'c', 'd', 'a'],
+      testAnalytical: ['1的解析', '2的解析', '3的解析', '4的解析', '5的解析']
     },
     {
       lessonId: 2,
@@ -55,7 +56,8 @@ export const useTestListStore = defineStore('testList', () => {
           options: ['冒泡排序', '插入排序', '希尔排序', '堆排序']
         }
       ],
-      testResult: ['a', 'b', 'c', 'd', 'a']
+      testResult: ['a', 'b', 'c', 'd', 'a'],
+      testAnalytical: ['1的解析', '2的解析', '3的解析', '4的解析', '5的解析']
     },
     {
       lessonId: 3,
@@ -82,7 +84,8 @@ export const useTestListStore = defineStore('testList', () => {
           options: ['冒泡排序', '插入排序', '希尔排序', '堆排序']
         }
       ],
-      testResult: ['a', 'b', 'c', 'd', 'a']
+      testResult: ['a', 'b', 'c', 'd', 'a'],
+      testAnalytical: ['1的解析', '2的解析', '3的解析', '4的解析', '5的解析']
     }
   ])
 
@@ -101,6 +104,15 @@ export const useTestListStore = defineStore('testList', () => {
     }
   ])
 
+  const changeUndoList = (lessonId: number, index: number) => {
+    undoList.value.forEach((item) => {
+      if (item.lessonId === lessonId) {
+        item.undo[index - 1] = true
+        localStorage.setItem('undoList', JSON.stringify(undoList.value))
+      }
+    })
+  }
+
   onBeforeMount(() => {
     // 如果有
     if (localStorage.getItem('undoList')) {
@@ -112,5 +124,5 @@ export const useTestListStore = defineStore('testList', () => {
     }
   })
 
-  return { testList, undoList }
+  return { testList, undoList, changeUndoList }
 })
