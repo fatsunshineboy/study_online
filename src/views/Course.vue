@@ -4,7 +4,7 @@
         <div class="left">
             <!-- 标题 -->
             <div class="self-start group">
-                <span class="text">My Courses</span>
+                <span class="text">我的课程</span>
             </div>
             <!-- 筛选 -->
             <div class="flex-row justify-between equal-division">
@@ -35,47 +35,20 @@
             </div>
             <!-- 课程展示 -->
             <div class="group_2 space-y-32">
+
                 <div id="course">
-                    <div class="cursorItem">
+                    <div class="cursorItem" v-for="(item, index) in couresListStore.coursesList"
+                        @click="goToLesson(item.lessonId)">
                         <div class="flex-col section_3">
                             <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
+                                <img id="cover" width="229" height="137" :src="item.coverUrl">
                             </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
+                            <span class="self-start font_1 text_3">{{ `- ${item.time}` }}</span>
+                            <span class="self-start font_2 text_4">{{ item.title }}</span>
+                            <span class="self-start font_3 text_5">{{ item.intro }}</span>
                         </div>
                     </div>
-                    <div class="cursorItem">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
-                    <div class="cursorItem">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
-                    <div class="cursorItem">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
@@ -86,14 +59,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useCookieStore } from '@/stores/cookie';
+import { useCoursesListStore } from '@/stores/coursesLIst';
+import { useRouter } from 'vue-router';
 
+const couresListStore = useCoursesListStore()
 const cookieStore = useCookieStore()
+const router = useRouter()
 let checkedId = ref(1);
 
 const sort = (id: number) => {
     checkedId.value = id;
 }
 
+const goToLesson = (lessonId: number) => {
+    router.push(`/lesson/${lessonId}`);
+}
 </script>
 
 <style scoped>

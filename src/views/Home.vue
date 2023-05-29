@@ -3,12 +3,12 @@
         <div class="left">
             <!-- 欢迎语 -->
             <div class="welcome" v-if="cookieStore.cookie">
-                <div class="hello">Hello,</div>
-                <div class="name">John Smith</div>
+                <div class="hello">你好,</div>
+                <div class="name">{{ userStore.name }}</div>
             </div>
             <!-- 标题 -->
             <div class="self-start group">
-                <span class="text">Courses</span>
+                <span class="text">课程</span>
             </div>
             <!-- 筛选 -->
             <div class="flex-row justify-between equal-division">
@@ -40,34 +40,15 @@
             <!-- 课程展示 -->
             <div class="group_2 space-y-32">
                 <div id="course">
-                    <div class="cursorItem" @click="goToLesson(1)">
+                    <div class="cursorItem" v-for="(item, index) in couresListStore.coursesList"
+                        @click="goToLesson(item.lessonId)">
                         <div class="flex-col section_3">
                             <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
+                                <img id="cover" width="229" height="137" :src="item.coverUrl">
                             </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
-                    <div class="cursorItem" @click="goToLesson(2)">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
-                        </div>
-                    </div>
-                    <div class="cursorItem" @click="goToLesson(3)">
-                        <div class="flex-col section_3">
-                            <div class="section_2">
-                                <img id="cover" width="229" height="137" src="@/assets/imgs/cover.svg">
-                            </div>
-                            <span class="self-start font_1 text_3">- 5 h 30 min</span>
-                            <span class="self-start font_2 text_4">PowerPoint</span>
-                            <span class="self-start font_3 text_5">Enhance your presentation skills.</span>
+                            <span class="self-start font_1 text_3">{{ `- ${item.time}` }}</span>
+                            <span class="self-start font_2 text_4">{{ item.title }}</span>
+                            <span class="self-start font_3 text_5">{{ item.intro }}</span>
                         </div>
                     </div>
 
@@ -87,9 +68,12 @@ import { ref } from 'vue';
 import { useCookieStore } from '@/stores/cookie';
 import HomeSideBarVue from './SideBar/HomeSideBar.vue';
 import { useRouter } from 'vue-router';
+import { useCoursesListStore } from '@/stores/coursesLIst';
+import { useUserStore } from '@/stores/user';
 
 const router = useRouter();
-
+const userStore = useUserStore()
+const couresListStore = useCoursesListStore()
 const cookieStore = useCookieStore()
 let checkedId = ref(1);
 

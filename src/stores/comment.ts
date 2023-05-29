@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import type { commentType } from '@/Interface/commentType'
 
 export const useCommentStore = defineStore('comment', () => {
-  const commentList = ref([
+  let commentList = ref([
     {
       lessonId: 1,
       count: 2,

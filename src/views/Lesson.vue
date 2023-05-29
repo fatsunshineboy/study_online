@@ -7,15 +7,15 @@
 
             <!-- 视频 -->
             <div class="video">
-                <video width="490" controls src="@/assets/video/c.mp4"></video>
+                <video width="490" controls :src="videoUrl"></video>
             </div>
 
             <!-- 课程信息 -->
             <div class="info">
-                <div class="time">- 0 h 55 min</div>
-                <div class="name">Complete Introduction to the Basics of JavaScript</div>
+                <div class="time">{{ `- ${couresListStore.coursesList[Number(route.params.id)-1].time}` }}</div>
+                <div class="name">{{ couresListStore.coursesList[Number(route.params.id)-1].title }}</div>
                 <div class="intro">
-                    Here are all the basics that you need to know in order to get started.
+                    {{ couresListStore.coursesList[Number(route.params.id)-1].intro }}
                 </div>
             </div>
 
@@ -155,19 +155,27 @@ import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCommentStore } from '@/stores/comment'
 import formatDate from '@/utils/formatDate'
-import { ElMessage } from 'element-plus';
+import { ElMessage } from 'element-plus'
 import type { commentType } from '@/Interface/commentType'
-import { useUserStore } from '@/stores/user';
-import TestSideBarVue from './SideBar/TestSideBar.vue';
+import { useUserStore } from '@/stores/user'
+import TestSideBarVue from './SideBar/TestSideBar.vue'
+import { useCoursesListStore } from '@/stores/coursesLIst';
+import videoUrl1 from "@/assets/video/1.mp4"
 
 const router = useRouter()
 const route = useRoute()
 const commentStore = useCommentStore()
 const userStore = useUserStore()
-onMounted(() => {
-    console.log(commentStore.commentList[Number(route.params.id) - 1]);
+const couresListStore = useCoursesListStore()
+console.log();
 
-})
+
+let videoUrl = ref("")
+
+if (route.params.id === "1") {
+    videoUrl.value = videoUrl1
+}
+// route.params.id === "1" ?videoUrl.value = videoUrl1:route.params.id === "2"?videoUrl.value = videoUrl2:videoUrl3
 
 // 回复的id
 let clickedCommentIndex = ref(-1)

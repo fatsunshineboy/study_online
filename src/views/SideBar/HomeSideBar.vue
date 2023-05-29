@@ -14,7 +14,7 @@
 
         <div class="content">
             <div class="title">
-                Lessons
+                课程进度
             </div>
             <div class="info scrollbarModify">
                 <div class="infoItem">
@@ -25,8 +25,8 @@
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 55 min</div>
-                            <div class="title">Introduction & Basics</div>
-                            <div class="intro">Learn all the basics that you need to know to get started.</div>
+                            <div class="title">简介和基础知识</div>
+                            <div class="intro">了解入门所需的所有基础知识</div>
                             <div class="progress">
                                 <el-progress :percentage="50" :color="customColors" />
                             </div>
@@ -42,8 +42,8 @@
                         </div>
                         <div class="detail">
                             <div class="time">- 1 h 15 min</div>
-                            <div class="title">Terminology</div>
-                            <div class="intro">Start getting to know all the terminology.</div>
+                            <div class="title">术语</div>
+                            <div class="intro">开始了解所有术语</div>
                             <div class="progress"><el-progress :percentage="20" :color="customColors" /></div>
                         </div>
                     </div>
@@ -57,8 +57,8 @@
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 25 min</div>
-                            <div class="title">Advanced Apps</div>
-                            <div class="intro">Your first step to building an advanced web app.</div>
+                            <div class="title">高级应用</div>
+                            <div class="intro">构建高级 Web 应用的第一步</div>
                             <div class="progress"><el-progress :percentage="90" :color="customColors" /></div>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 35 min</div>
-                            <div class="title">Final Assessment</div>
-                            <div class="intro">Your first step to building an advanced web app.</div>
+                            <div class="title">最终评估</div>
+                            <div class="intro">评估你的学习情况</div>
                             <div class="progress"><el-progress :percentage="10" :color="customColors" /></div>
                         </div>
                     </div>
