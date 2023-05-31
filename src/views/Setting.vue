@@ -15,8 +15,8 @@
                 </div>
             </div>
 
-            <div class="name">John Smith</div>
-            <div class="email">johnsmith@gmail.com</div>
+            <div class="name">{{ userStore.name }}</div>
+            <div class="email">{{ userStore.email }}</div>
         </div>
 
         <div class="settingItem">
@@ -60,7 +60,10 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useUserStore } from '@/stores/user';
+const userStore = useUserStore();
+</script>
 
 <style style="scss" scoped>
 @import url(@/style/views/Setting.scss);

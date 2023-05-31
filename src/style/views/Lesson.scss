@@ -67,6 +67,16 @@
           gap: 10px;
           font-size: 14px;
           align-items: center;
+          .isSorted {
+            font-weight: 800;
+            color: black;
+          }
+          .hot,
+          .new {
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
       }
 

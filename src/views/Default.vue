@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-col page" >
+    <div class="flex-col page">
         <div class="flex-row ">
             <div class="leftContent">
                 <div id="left">
@@ -8,10 +8,11 @@
                         <img class="image" v-if="cookieStore.cookie"
                             src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
                         <div class="info" v-if="cookieStore.cookie">
-                            <div class="name">John Smith</div>
+                            <div class="name">{{ userStore.name }}</div>
                             <div class="identity">学生</div>
                         </div>
-                        <img class="image notLoginImage" v-if="!cookieStore.cookie" src="@/assets/imgs/default_portrait.svg" />
+                        <img class="image notLoginImage" v-if="!cookieStore.cookie"
+                            src="@/assets/imgs/default_portrait.svg" />
                         <div class="notLogin info" v-if="!cookieStore.cookie">
                             <div class="notLoginText">请登录</div>
                         </div>
@@ -62,11 +63,12 @@
 
 <script setup lang="ts">
 import { useCookieStore } from '@/stores/cookie';
+import { useUserStore } from '@/stores/user';
 import { inject, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const cookieStore = useCookieStore()
-
+const userStore = useUserStore()
 const router = useRouter();
 let checkedId = ref(1);
 

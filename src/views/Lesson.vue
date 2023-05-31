@@ -12,10 +12,10 @@
 
             <!-- 课程信息 -->
             <div class="info">
-                <div class="time">{{ `- ${couresListStore.coursesList[Number(route.params.id)-1].time}` }}</div>
-                <div class="name">{{ couresListStore.coursesList[Number(route.params.id)-1].title }}</div>
+                <div class="time">{{ `- ${couresListStore.coursesList[Number(route.params.id) - 1].time}` }}</div>
+                <div class="name">{{ couresListStore.coursesList[Number(route.params.id) - 1].title }}</div>
                 <div class="intro">
-                    {{ couresListStore.coursesList[Number(route.params.id)-1].intro }}
+                    {{ couresListStore.coursesList[Number(route.params.id) - 1].intro }}
                 </div>
             </div>
 
@@ -27,9 +27,11 @@
                         <div class="count">{{ commentStore.commentList[Number(route.params.id) - 1].count }}</div>
                     </div>
                     <div class="sort">
-                        <div class="hot">最热</div>
+                        <div class="hot" :class="{ isSorted: isSortedByHot }" @click="isSortedByHot = true">最热
+                        </div>
                         <div class="divid">|</div>
-                        <div class="new">最新</div>
+                        <div class="new" :class="{ isSorted: !isSortedByHot }" @click="isSortedByHot = false">最新
+                        </div>
                     </div>
                 </div>
 
@@ -167,8 +169,6 @@ const route = useRoute()
 const commentStore = useCommentStore()
 const userStore = useUserStore()
 const couresListStore = useCoursesListStore()
-console.log();
-
 
 let videoUrl = ref("")
 
@@ -238,6 +238,9 @@ const sendComment = (option: commentOption, commentObject: commentType) => {
     }
 
 }
+
+// 排序
+let isSortedByHot = ref(true)
 </script>
 
 <style lang="scss" scoped>
