@@ -44,7 +44,8 @@
                             </div>
 
                         </div>
-                        <div class="analytical" v-show="answered">
+                        <div class="analytical" v-if="answered">
+                            <div>解析：</div>
                             {{ testListStore.testList[Number(route.params.id) - 1].testAnalytical[subjectIndex] }}
                         </div>
                     </div>

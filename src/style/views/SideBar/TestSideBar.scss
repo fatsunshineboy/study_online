@@ -10,7 +10,7 @@
       color: rgba(23, 34, 57, 1);
     }
     .test {
-      height: 65vh;
+      height: 60vh;
       margin-top: 30px;
 
       .num {
@@ -54,7 +54,9 @@
         border-radius: 32px;
         border: 1px solid rgba(234, 234, 234, 1);
         padding: 20px;
-        overflow-y: auto;
+        height: 55vh;
+        overflow: auto;
+        white-space: pre-line;
         .multipleTest {
           .multipleSubject {
             font-size: 20px;
@@ -98,6 +100,7 @@
             line-height: 23px;
             font-size: 16px;
             font-weight: 600;
+            white-space: pre-line;
           }
         }
       }
