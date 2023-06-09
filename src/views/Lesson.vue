@@ -2,8 +2,7 @@
     <div id="lesson">
         <div class="left">
             <!-- 返回按钮 -->
-            <img class="backButton" @click="goToHome" width="40"
-                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
+            <img class="backButton" @click="goToHome" width="40" src="@/assets/imgs/lesson/back_ico.png" />
 
             <!-- 视频 -->
             <div class="video">
@@ -37,8 +36,7 @@
 
                 <div class="remark">
                     <div class="icon">
-                        <img width="45" height="45"
-                            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+                        <img width="45" height="45" :src="userStore.imageUrl" />
                     </div>
                     <textarea roows="4" v-model="commentInputContent" placeholder="发个友善的评论吧~" ref="commentInput"
                         class="remarkInput scrollbarModify" @keyup.enter="sendComment(commentOption.comment, {
@@ -114,8 +112,7 @@
                             </div>
                             <div class="replyItem" v-show="clickedCommentIndex === item.commentId">
                                 <div class="icon">
-                                    <img width="45" height="45"
-                                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+                                    <img width="45" height="45" :src="userStore.imageUrl" />
                                 </div>
                                 <textarea roows="3" :placeholder="`回复 @${replyInputName}:`" v-model="replyInputContent"
                                     ref="replyInput" class="replyInput scrollbarModify" @keyup.enter="sendComment(commentOption.reply, {
@@ -162,7 +159,8 @@ import type { commentType } from '@/Interface/commentType'
 import { useUserStore } from '@/stores/user'
 import TestSideBarVue from './SideBar/TestSideBar.vue'
 import { useCoursesListStore } from '@/stores/coursesLIst';
-import videoUrl1 from "@/assets/video/1.mp4"
+import videoUrl1 from "@/assets/video/c.mp4"
+import videoUrl2 from "@/assets/video/link.mp4"
 
 const router = useRouter()
 const route = useRoute()
@@ -174,6 +172,8 @@ let videoUrl = ref("")
 
 if (route.params.id === "1") {
     videoUrl.value = videoUrl1
+} else if (route.params.id === "2") {
+    videoUrl.value = videoUrl2
 }
 // route.params.id === "1" ?videoUrl.value = videoUrl1:route.params.id === "2"?videoUrl.value = videoUrl2:videoUrl3
 

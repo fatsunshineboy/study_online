@@ -1,30 +1,33 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import cover1 from '@/assets/imgs/cover/cover1.png'
+import cover2 from '@/assets/imgs/cover/cover2.png'
+import cover3 from '@/assets/imgs/cover/cover3.png'
 
 export const useCoursesListStore = defineStore('coursesList', () => {
   let coursesList = ref([
     {
       lessonId: 1,
-      time: '5 h 30 min',
+      time: '5 分 26 秒',
       title: 'C语言基础',
       intro: '回忆C语言',
-      coverUrl: 'https://cdn.pixabay.com/photo/2023/05/14/19/42/sky-7993656_640.jpg'
+      coverUrl: cover1
     },
     {
       lessonId: 2,
-      time: '2 h 20 min',
+      time: '5 分 32 秒',
       title: '链式储存',
-      intro: '初识数据结构',
-      coverUrl: 'https://cdn.pixabay.com/photo/2023/05/21/12/40/dog-8008483_640.jpg'
+      intro: '初识数据结构中的链式存储',
+      coverUrl: cover2
     },
     {
       lessonId: 3,
       time: '1 h 40 min',
       title: '排序算法',
-      intro: '增强你的实际能力',
-      coverUrl: 'https://cdn.pixabay.com/photo/2023/05/15/01/44/flower-7993995_1280.jpg'
+      intro: '感受数据结构的妙用',
+      coverUrl: cover3
     }
   ])
 
-  return {coursesList}
+  return { coursesList }
 })

@@ -5,19 +5,17 @@
                 <div id="left">
                     <!-- 顶部信息栏 -->
                     <div id="info" class="flex-row items-center section space-x-197" @click="infoClickHandler">
-                        <img class="image" v-if="cookieStore.cookie"
-                            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png" />
+                        <img class="image" v-if="cookieStore.cookie" :src="userStore.imageUrl" />
                         <div class="info" v-if="cookieStore.cookie">
                             <div class="name">{{ userStore.name }}</div>
                             <div class="identity">学生</div>
                         </div>
                         <img class="image notLoginImage" v-if="!cookieStore.cookie"
-                            src="@/assets/imgs/default_portrait.svg" />
+                            src="@/assets/imgs/default/default_portrait.svg" />
                         <div class="notLogin info" v-if="!cookieStore.cookie">
                             <div class="notLoginText">请登录</div>
                         </div>
-                        <img class="arrow image_3 image_4"
-                            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
+                        <img class="arrow image_3 image_4" src="@/assets/imgs/default/right_narrow.png" />
                     </div>
 
                     <!-- 侧边导航栏 -->
@@ -26,20 +24,17 @@
                             <div class="flex-col section_2 space-y-38">
                                 <div :class="{ button: checkedId === 1 }" class="flex-col justify-start items-start nav"
                                     @click=changeNav(1)>
-                                    <img class="image_8"
-                                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998622040960638.png" />
+                                    <img class="image_8" src="@/assets/imgs/default/home_ico.png" />
                                     <span class="title">主页</span>
                                 </div>
                                 <div :class="{ button: checkedId === 2 }" class="flex-col justify-start items-start nav"
                                     @click=changeNav(2)>
-                                    <img class="self-start image_8"
-                                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998622026608258.png" />
+                                    <img class="self-start image_8" src="@/assets/imgs/default/lesson_ico.png" />
                                     <span class="title">课程</span>
                                 </div>
                                 <div :class="{ button: checkedId === 3 }" class="flex-col justify-start items-start nav"
                                     @click=changeNav(3)>
-                                    <img class="self-start image_9"
-                                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998622014720929.png" />
+                                    <img class="self-start image_9" src="@/assets/imgs/default/setting_ico.png" />
                                     <span class="title">设置</span>
                                 </div>
                             </div>

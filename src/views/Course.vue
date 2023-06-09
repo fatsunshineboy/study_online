@@ -10,26 +10,22 @@
             <div class="flex-row justify-between equal-division">
                 <div :class="{ selected: checkedId === 1 }" @click=sort(1)
                     class="flex-col justify-start items-center equal-division-item">
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/40355c1818bab41429a6314048e067de.png" />
+                    <img class="image" src="@/assets/imgs/codeFunImg/sort1.png" />
                     <span class="navText">全部</span>
                 </div>
                 <div :class="{ selected: checkedId === 2 }" @click=sort(2)
                     class="flex-col justify-start items-center equal-division-item">
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/4cf5b42708ffc8f6bcc4de12e4f42533.png" />
+                    <img class="image" src="@/assets/imgs/codeFunImg/sort2.png" />
                     <span class="navText">C语言</span>
                 </div>
                 <div :class="{ selected: checkedId === 3 }" @click=sort(3)
                     class="flex-col justify-start items-center equal-division-item">
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/24866b96262ff0d9ba4c72464a4018e4.png" />
+                    <img class="image" src="@/assets/imgs/codeFunImg/sort3.png" />
                     <span class="navText">数据结构</span>
                 </div>
                 <div :class="{ selected: checkedId === 4 }" @click=sort(4)
                     class="flex-col justify-start items-center equal-division-item">
-                    <img class="image"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/7d9f1f3bfa4a408ce8372b3db479e1f0.png" />
+                    <img class="image" src="@/assets/imgs/codeFunImg/sort4.png" />
                     <span class="navText">算法</span>
                 </div>
             </div>

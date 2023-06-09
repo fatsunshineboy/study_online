@@ -1,11 +1,10 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import userImg from '@/assets/imgs/codeFunImg/userImg.png'
 
 export const useUserStore = defineStore('user', () => {
   let name = ref('亚瑟')
-  let imageUrl = ref(
-    'https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png'
-  )
+  let imageUrl = ref(userImg)
   let email = ref('Arthur@Morgan.com')
 
   return { name, imageUrl, email }

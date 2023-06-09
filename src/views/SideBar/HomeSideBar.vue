@@ -3,12 +3,10 @@
         <div class="head">
             <div class="search">
                 <input class="searchInput" placeholder="搜索" type="text">
-                <img class="searchIcon" width="20"
-                    src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621993524527.png">
+                <img class="searchIcon" width="20" src="@/assets/imgs/sideBar/search.png">
             </div>
             <div class="info">
-                <img width="48"
-                    src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cdf706f19be881670bb5e412bc0ae602.png">
+                <img width="48" src="@/assets/imgs/sideBar/message.png">
             </div>
         </div>
 
@@ -20,8 +18,7 @@
                 <div class="infoItem">
                     <div class="container">
                         <div class="icon">
-                            <img width="64"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/6533f4ea7ff57d5aea04389fb3e6745f.png">
+                            <img width="64" src="@/assets/imgs/sideBar/ico1.png">
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 55 min</div>
@@ -37,8 +34,7 @@
                 <div class="infoItem">
                     <div class="container">
                         <div class="icon">
-                            <img width="64"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/6416ab3bd17b7ba9ad1cf03824bb5102.png">
+                            <img width="64" src="@/assets/imgs/sideBar/ico2.png">
                         </div>
                         <div class="detail">
                             <div class="time">- 1 h 15 min</div>
@@ -52,8 +48,7 @@
                 <div class="infoItem">
                     <div class="container">
                         <div class="icon">
-                            <img width="64"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/5b136fce0737f5b7403031d6c2a21e55.png">
+                            <img width="64" src="@/assets/imgs/sideBar/ico3.png">
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 25 min</div>
@@ -67,8 +62,7 @@
                 <div class="infoItem">
                     <div class="container">
                         <div class="icon">
-                            <img width="64"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/dd0f98ff0fd0a44603d53766323da295.png">
+                            <img width="64" src="@/assets/imgs/sideBar/ico4.png">
                         </div>
                         <div class="detail">
                             <div class="time">- 0 h 35 min</div>

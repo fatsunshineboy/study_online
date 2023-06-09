@@ -4,7 +4,7 @@
         <div class="left">
             <!-- 左侧轮播图 -->
             <div class="carousel">
-                <el-carousel indicator-position="outside" height="360px">
+                <el-carousel indicator-position="outside" height="360px" interval="2000">
                     <el-carousel-item>
                         <div class="content">
                             <img src="@/assets/imgs/login/login1.png" height="210">
@@ -40,8 +40,7 @@
         <div class="right">
 
             <!-- 返回按钮 -->
-            <img class="image backButton" width="40" @click="goHome()"
-                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/cc22544635359e556f508965420e9703.png" />
+            <img class="image backButton" width="40" @click="goHome()" src="@/assets/imgs/lesson/back_ico.png" />
 
             <!-- 登录提示文字 -->
             <div class="title" v-if="isLogin">
@@ -63,8 +62,7 @@
                         <span class="emailText textItem">邮箱</span>
                         <div class="input">
                             <input class="emialInput inputItem" type="text" v-model="emailData">
-                            <img class="emailImage imgItem" width="25"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16839932885110860950.png" />
+                            <img class="emailImage imgItem" width="25" src="@/assets/imgs/login/email.png" />
                         </div>
                     </div>
 
@@ -73,8 +71,7 @@
                         <span class="forgetPassword textItem" v-if="isLogin">忘记密码？</span>
                         <div class="input">
                             <input class="passwordInput inputItem" type="text" v-model="passwordData">
-                            <img class="passwordImage imgItem" width="25"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16839932885015614408.png" />
+                            <img class="passwordImage imgItem" width="25" src="@/assets/imgs/login/password.png" />
                         </div>
                     </div>
 
@@ -83,8 +80,7 @@
                         <span class="forgetPassword textItem" v-if="isLogin">忘记密码？</span>
                         <div class="input">
                             <input class="passwordInput inputItem" type="text">
-                            <img class="passwordImage imgItem" width="25"
-                                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16839932885015614408.png" />
+                            <img class="passwordImage imgItem" width="25" src="@/assets/imgs/login/password.png" />
                         </div>
                     </div>
 
@@ -95,26 +91,22 @@
 
                 <div class="signUp buttonItem" v-if="isLogin" @click="isLogin = false">
                     <div class="text">注册</div>
-                    <img class="imageItem" width="8"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
+                    <img class="imageItem" width="8" src="@/assets/imgs/default/right_narrow.png" />
                 </div>
 
                 <div class="loginIn buttonItem" v-if="isLogin" @click="loginHandle()">
                     <div class="text">登录</div>
-                    <img class="imageItem" width="8"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
+                    <img class="imageItem" width="8" src="@/assets/imgs/default/right_narrow.png" />
                 </div>
 
                 <div class="buttonItem" v-if="!isLogin" @click="isLogin = true">
                     <div class="text">返回登录</div>
-                    <img class="imageItem" width="8"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
+                    <img class="imageItem" width="8" src="@/assets/imgs/default/right_narrow.png" />
                 </div>
 
                 <div class="createAccount buttonItem" v-if="!isLogin">
                     <div class="text">创建账户</div>
-                    <img class="imageItem" width="8"
-                        src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621966608102.png" />
+                    <img class="imageItem" width="8" src="@/assets/imgs/default/right_narrow.png" />
                 </div>
             </div>
 
