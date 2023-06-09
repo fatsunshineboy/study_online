@@ -1,1 +1,0 @@
-import{y as a,r as e}from"./index-02ae53aa.js";const u=a("user",()=>{let r=e("亚瑟"),o=e("https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645a6ddf5a7e3f0310fb6153/645e45b854fe000011615674/16838998621899878224.png"),t=e("Arthur@Morgan.com");return{name:r,imageUrl:o,email:t}});export{u};
