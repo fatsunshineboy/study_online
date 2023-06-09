@@ -77,7 +77,9 @@
                                     <img class="likeIcon" src="@/assets/imgs/lesson/like.svg" width="15" />
                                     <div class="count">{{ item.likeCount }}</div>
                                 </div>
-                                <div class="reply" @click="reply(item.commentId, item.name, item.commentId)">回复</div>
+                                <div class="reply" @click="reply(item.commentId, item.name, item.commentId)">
+                                    <label :for="`replyInput${index}`">回复</label>
+                                </div>
                             </div>
                             <div class="commentChildren" v-if="item.hasChildcomment"
                                 v-for="(childItem, childIndex) in item.childcomment?.content">
@@ -105,7 +107,7 @@
                                         </div>
                                         <div class="reply"
                                             @click="reply(item.commentId, childItem.name, childItem.commentId, item.commentId)">
-                                            回复
+                                            <label :for="`replyInput${index}`">回复</label>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +117,8 @@
                                     <img width="45" height="45" :src="userStore.imageUrl" />
                                 </div>
                                 <textarea roows="3" :placeholder="`回复 @${replyInputName}:`" v-model="replyInputContent"
-                                    ref="replyInput" class="replyInput scrollbarModify" @keyup.enter="sendComment(commentOption.reply, {
+                                    ref="replyInput" :id="`replyInput${index}`" class="replyInput scrollbarModify"
+                                    @keyup.enter="sendComment(commentOption.reply, {
                                         lessonId: Number(route.params.id),
                                         comment: replyInputContent,
                                         name: userStore.name,
@@ -196,9 +199,9 @@ const reply = (
     parentCommentId?: number | null,
 ) => {
     // 再次点击回复收起回复框
-    console.log(index);
 
-    if (clickedCommentIndex.value === index) {
+    replyInputContent.value = ""
+    if (clickedCommentIndex.value === index && replyCommentId.value === commentId) {
         clickedCommentIndex.value = -1
         replyInputName.value = ''
         return
@@ -208,7 +211,6 @@ const reply = (
         // 修改回复者的姓名
         replyInputName.value = replyName
         replyCommentId.value = commentId
-
     }
 }
 
