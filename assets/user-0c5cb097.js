@@ -1,0 +1,1 @@
+import{y as o,r as e}from"./index-8f1f618e.js";const s=""+new URL("userImg-675631d6.png",import.meta.url).href,n=o("user",()=>{let r=e("亚瑟"),t=e(s),m=e("Arthur@Morgan.com");return{name:r,imageUrl:t,email:m}});export{n as u};
