@@ -164,6 +164,7 @@ import TestSideBarVue from './SideBar/TestSideBar.vue'
 import { useCoursesListStore } from '@/stores/coursesLIst';
 import videoUrl1 from "@/assets/video/c.mp4"
 import videoUrl2 from "@/assets/video/link.mp4"
+import videoUrl3 from "@/assets/video/sort.mp4"
 
 const router = useRouter()
 const route = useRoute()
@@ -177,6 +178,8 @@ if (route.params.id === "1") {
     videoUrl.value = videoUrl1
 } else if (route.params.id === "2") {
     videoUrl.value = videoUrl2
+} else if (route.params.id === "3") {
+    videoUrl.value = videoUrl3
 }
 // route.params.id === "1" ?videoUrl.value = videoUrl1:route.params.id === "2"?videoUrl.value = videoUrl2:videoUrl3
 

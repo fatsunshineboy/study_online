@@ -22,7 +22,7 @@ export const useCoursesListStore = defineStore('coursesList', () => {
     },
     {
       lessonId: 3,
-      time: '1 h 40 min',
+      time: '28 分 52 秒',
       title: '排序算法',
       intro: '感受数据结构的妙用',
       coverUrl: cover3
